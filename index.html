@@ -1471,33 +1471,36 @@ pfScale();
 window.addEventListener('resize', pfScale, { passive: true });
 
 // ── Portfolio modal ──────────────────────────────────────────────
-var pfModal  = document.getElementById('pfModal');
-var pfIframe = document.getElementById('pfModalIframe');
-var pfLabel  = document.getElementById('pfModalLabel');
-var pfNewTab = document.getElementById('pfModalNewTab');
-
-document.querySelectorAll('[data-modal-url]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        var url   = this.dataset.modalUrl;
-        var label = this.dataset.modalLabel || '';
-        pfIframe.src          = url;
-        pfLabel.textContent   = label;
-        pfNewTab.href         = url;
-        pfModal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-    });
-});
 function pfCloseModal() {
+    var pfModal  = document.getElementById('pfModal');
+    var pfIframe = document.getElementById('pfModalIframe');
     pfModal.classList.remove('open');
     pfIframe.src = '';
     document.body.style.overflow = '';
 }
+
+document.querySelectorAll('[data-modal-url]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var pfModal  = document.getElementById('pfModal');
+        var pfIframe = document.getElementById('pfModalIframe');
+        var pfLabel  = document.getElementById('pfModalLabel');
+        var pfNewTab = document.getElementById('pfModalNewTab');
+        var url      = this.dataset.modalUrl;
+        var label    = this.dataset.modalLabel || '';
+        pfIframe.src        = url;
+        pfLabel.textContent = label;
+        pfNewTab.href       = url;
+        pfModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    });
+});
+
 document.getElementById('pfModalClose').addEventListener('click', pfCloseModal);
-pfModal.addEventListener('click', function(e) {
-    if (e.target === pfModal) pfCloseModal();
+document.getElementById('pfModal').addEventListener('click', function(e) {
+    if (e.target === this) pfCloseModal();
 });
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && pfModal.classList.contains('open')) pfCloseModal();
+    if (e.key === 'Escape' && document.getElementById('pfModal').classList.contains('open')) pfCloseModal();
 }, { passive: true });
 </script>
 
