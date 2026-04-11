@@ -1457,7 +1457,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
         hamBtn.classList.remove('open');
         document.body.style.overflow = '';
     }
-  // ── Portfolio : scaler previews iframe ──────────────────────────
+ // ── Portfolio : scaler previews iframe ──────────────────────────
 function pfScale() {
     document.querySelectorAll('[data-scaler]').forEach(function(scaler) {
         var wrap = scaler.closest('.pf-preview-wrap');
@@ -1474,6 +1474,7 @@ window.addEventListener('resize', pfScale, { passive: true });
 function pfCloseModal() {
     var pfModal  = document.getElementById('pfModal');
     var pfIframe = document.getElementById('pfModalIframe');
+    if (!pfModal || !pfIframe) return;
     pfModal.classList.remove('open');
     pfIframe.src = '';
     document.body.style.overflow = '';
@@ -1495,12 +1496,17 @@ document.querySelectorAll('[data-modal-url]').forEach(function(btn) {
     });
 });
 
-document.getElementById('pfModalClose').addEventListener('click', pfCloseModal);
-document.getElementById('pfModal').addEventListener('click', function(e) {
-    if (e.target === this) pfCloseModal();
+document.addEventListener('click', function(e) {
+    if (e.target.closest('#pfModalClose')) { pfCloseModal(); return; }
+    var backdrop = document.getElementById('pfModal');
+    if (backdrop && e.target === backdrop) pfCloseModal();
 });
+
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && document.getElementById('pfModal').classList.contains('open')) pfCloseModal();
+    if (e.key === 'Escape') {
+        var pfModal = document.getElementById('pfModal');
+        if (pfModal && pfModal.classList.contains('open')) pfCloseModal();
+    }
 }, { passive: true });
 </script>
 
