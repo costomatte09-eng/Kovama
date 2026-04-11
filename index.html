@@ -65,6 +65,60 @@
             overflow-x: hidden;
         }
         h1,h2,h3,h4,h5 { font-family: 'Plus Jakarta Sans', sans-serif; }
+      /* ══════════════════════════════════
+   LAYOUT — SECTION & CONTAINER
+══════════════════════════════════ */
+.section {
+    padding: 6rem 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ══════════════════════════════════
+   SECTION — TITRES GÉNÉRIQUES
+══════════════════════════════════ */
+.section-label {
+    display: inline-block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.6rem;
+}
+
+.section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: #e2e8f0;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+.section-underline {
+    width: 44px;
+    height: 3px;
+    background: var(--orange);
+    border-radius: 4px;
+    margin: 0.85rem 0 1.6rem;
+}
+
+@media (max-width: 768px) {
+    .section { padding: 4rem 0; }
+    .container { padding: 0 1.25rem; }
+}
+
+@media (max-width: 480px) {
+    .section { padding: 3rem 0; }
+    .container { padding: 0 1rem; }
+}
 
 
         /* ══════════════════════════════════
@@ -479,412 +533,7 @@
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23e8572a'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat center;
         }
 
-        /* ══════════════════════════════════
-           PORTFOLIO
-        ══════════════════════════════════ */
-
-.portfolio-projects {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-top: 3rem;
-}
-
-/* Carte projet */
-.portfolio-project {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    border-radius: 1.15rem;
-    overflow: hidden;
-    background: rgba(13,27,46,0.42);
-    border: 1px solid rgba(255,255,255,0.055);
-    transition: border-color 0.35s, box-shadow 0.35s;
-}
-
-.portfolio-project:hover {
-    border-color: rgba(232,87,42,0.28);
-    box-shadow: 0 20px 60px rgba(232,87,42,0.07);
-}
-
-/* ── Côté iframe (preview non-interactive) ── */
-.portfolio-iframe-side {
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid rgba(255,255,255,0.055);
-    background: #07111e;
-}
-
-.iframe-preview-wrap {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
-    background: #07111e;
-    cursor: pointer;
-}
-
-.iframe-scaler {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform-origin: top left;
-    width: 1280px;
-    pointer-events: none;
-}
-
-.iframe-scaler iframe {
-    width: 1280px;
-    border: none;
-    display: block;
-    pointer-events: none;
-}
-
-/* Overlay sur la preview */
-.iframe-preview-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(7,17,30,0);
-    transition: background 0.3s;
-}
-
-.iframe-preview-overlay:hover {
-    background: rgba(7,17,30,0.45);
-}
-
-.iframe-preview-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(232,87,42,0.95);
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 9px 20px;
-    border-radius: 99px;
-    border: none;
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(6px) scale(0.96);
-    transition: opacity 0.25s, transform 0.25s;
-    pointer-events: none;
-}
-
-.iframe-preview-overlay:hover .iframe-preview-btn {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
-}
-
-/* Barre basse de la preview */
-.iframe-footer {
-    padding: 8px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid rgba(255,255,255,0.055);
-    background: rgba(7,17,30,0.95);
-    flex-shrink: 0;
-}
-
-.iframe-site-name {
-    font-size: 0.76rem;
-    font-weight: 700;
-    color: #e2e8f0;
-    letter-spacing: 0.02em;
-}
-
-/* Bouton icône "ouvrir dans un nouvel onglet" — discret */
-.iframe-btn-newtab {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: transparent;
-    border: 1px solid rgba(232,87,42,0.3);
-    color: #e8572a;
-    text-decoration: none;
-    transition: background 0.2s, border-color 0.2s;
-    flex-shrink: 0;
-}
-
-.iframe-btn-newtab:hover {
-    background: rgba(232,87,42,0.12);
-    border-color: rgba(232,87,42,0.6);
-}
-
-/* ── Côté info ── */
-.portfolio-info-side {
-    padding: 2rem 1.8rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.portfolio-tag {
-    display: inline-block;
-    background: rgba(232,87,42,0.11);
-    color: #e8572a;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 99px;
-    padding: 3px 12px;
-    margin-bottom: 0.9rem;
-    width: fit-content;
-}
-
-.portfolio-project-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #e2e8f0;
-    margin: 0 0 0.75rem;
-    line-height: 1.35;
-}
-
-.portfolio-project-desc {
-    font-size: 0.8rem;
-    color: #94a3b8;
-    line-height: 1.75;
-    margin: 0;
-    flex: 1;
-}
-
-/* Témoignage */
-.portfolio-testimonial {
-    margin-top: 1.4rem;
-    padding-top: 1.4rem;
-    border-top: 1px solid rgba(255,255,255,0.055);
-}
-
-.portfolio-stars {
-    color: #e8572a;
-    font-size: 0.78rem;
-    letter-spacing: 3px;
-    margin-bottom: 0.6rem;
-}
-
-.portfolio-quote {
-    font-size: 0.78rem;
-    color: #cbd5e1;
-    font-style: italic;
-    line-height: 1.75;
-    margin: 0 0 1rem;
-}
-
-.portfolio-author {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.portfolio-author-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(232,87,42,0.1);
-    border: 1.5px solid rgba(232,87,42,0.22);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: #e8572a;
-    flex-shrink: 0;
-}
-
-.portfolio-author-name {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #e2e8f0;
-    margin: 0 0 1px;
-}
-
-.portfolio-author-role {
-    font-size: 0.68rem;
-    color: #64748b;
-    margin: 0;
-}
-
-/* Placeholder projets sans iframe */
-.portfolio-placeholder {
-    flex: 1;
-    min-height: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.portfolio-placeholder-bg {
-    position: absolute;
-    inset: 0;
-}
-
-/* ══════════════════════════════════
-   MODALE IFRAME
-══════════════════════════════════ */
-
-.pf-modal-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 9000;
-    background: rgba(7,17,30,0.88);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-.pf-modal-backdrop.is-open {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.pf-modal {
-    position: relative;
-    width: 100%;
-    max-width: 1080px;
-    height: 80vh;
-    border-radius: 1rem;
-    overflow: hidden;
-    border: 1px solid rgba(232,87,42,0.2);
-    display: flex;
-    flex-direction: column;
-    transform: translateY(16px) scale(0.98);
-    transition: transform 0.3s;
-}
-
-.pf-modal-backdrop.is-open .pf-modal {
-    transform: translateY(0) scale(1);
-}
-
-.pf-modal-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 14px;
-    background: #07111e;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    flex-shrink: 0;
-}
-
-.pf-modal-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #e2e8f0;
-    letter-spacing: 0.03em;
-}
-
-.pf-modal-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Bouton icône nouvel onglet dans la modale */
-.pf-modal-newtab {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: transparent;
-    border: 1px solid rgba(232,87,42,0.3);
-    color: #e8572a;
-    text-decoration: none;
-    transition: background 0.2s;
-}
-
-.pf-modal-newtab:hover {
-    background: rgba(232,87,42,0.12);
-}
-
-/* Bouton fermer */
-.pf-modal-close {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.12);
-    color: #94a3b8;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-}
-
-.pf-modal-close:hover {
-    background: rgba(255,255,255,0.06);
-    color: #e2e8f0;
-}
-
-.pf-modal-iframe-wrap {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    background: #fff;
-}
-
-.pf-modal-iframe-wrap iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-}
-
-/* ── Responsive ── */
-@media (max-width: 900px) {
-    .portfolio-project {
-        grid-template-columns: 1fr;
-    }
-    .portfolio-iframe-side {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.055);
-    }
-    .iframe-preview-wrap {
-        height: 240px;
-    }
-    .portfolio-info-side {
-        padding: 1.5rem;
-    }
-    .portfolio-placeholder {
-        min-height: 220px;
-    }
-    .pf-modal {
-        height: 85vh;
-    }
-}
-
-@media (max-width: 480px) {
-    .iframe-preview-wrap {
-        height: 190px;
-    }
-    .portfolio-info-side {
-        padding: 1.25rem;
-    }
-    .portfolio-project-title {
-        font-size: 0.95rem;
-    }
-    .pf-modal {
-        height: 90vh;
-    }
-}
+        ca
 
         /* ══════════════════════════════════
            FORMULAIRE
