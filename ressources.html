@@ -611,19 +611,22 @@
   const noResults = document.getElementById('no-results');
 
   pills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      pills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      const cat = pill.dataset.cat;
-      let visible = 0;
-      cards.forEach(card => {
-        const match = cat === 'all' || card.dataset.cat === cat;
-        card.style.display = match ? '' : 'none';
-        if (match) visible++;
-      });
-      noResults.style.display = visible === 0 ? 'block' : 'none';
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const cat = pill.dataset.cat;
+    let visible = 0;
+    cards.forEach(card => {
+      const match = cat === 'all' || card.dataset.cat === cat;
+      card.style.display = match ? '' : 'none';
+      if (match) {
+        card.classList.add('aos-animate'); // force AOS à révéler la carte immédiatement
+        visible++;
+      }
     });
+    noResults.style.display = visible === 0 ? 'block' : 'none';
   });
+});
 </script>
 
 </body>
