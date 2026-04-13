@@ -812,8 +812,16 @@ img { max-width: 100%; height: auto; display: block; }
             /* Marquee texte légèrement plus petit */
             .marquee-track span { font-size: 0.78rem !important; padding: 0 1.2rem !important; }
 
-            /* Boutons hero pleine largeur */
-            #accueil .hero-fade > a { width: 100%; justify-content: center; }
+            /* Typewriter sans délai sur mobile */
+#typewriter-line {
+    animation:
+        tw-expand 1.8s steps(18, end) 0s forwards,
+        blink-caret 0.75s step-end 0s 3,
+        caret-hide 0s 1.8s forwards;
+}
+
+/* Boutons hero pleine largeur */
+#accueil .hero-fade > a { width: 100%; justify-content: center; }
         }
 
         @media (max-width: 480px) {
