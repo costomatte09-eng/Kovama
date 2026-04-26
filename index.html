@@ -911,7 +911,16 @@ img { max-width: 100%; height: auto; display: block; }
             </a>
         </div>
     </div>
-
+@media (max-width: 768px) {
+    .hero-fade[style*="animation-delay:2.5s"],
+    .hero-fade[style*="animation-delay: 2.5s"] {
+        animation-delay: 0.8s !important;
+    }
+    .hero-fade[style*="animation-delay:2.8s"],
+    .hero-fade[style*="animation-delay: 2.8s"] {
+        animation-delay: 1s !important;
+    }
+}
 
 </section>
 
