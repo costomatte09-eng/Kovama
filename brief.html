@@ -1,1 +1,1023 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <link rel="icon" type="image/png" href="img/favicon.PNG">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- ═══ SEO META ═══ -->
+    <title>Réussir son brief & checklist projet en collaboration | Kovama</title>
+    <meta name="description" content="Tout ce dont Kovama a besoin pour créer votre site : brief, contenus, identité visuelle, objectifs. Guide pratique pour démarrer votre projet web du bon pied.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kovama.fr/brief-checklist.html">
+
+    <!-- Schema.org FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Je n'ai pas de logo — est-ce un problème ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, c'est courant. Partagez votre nom, votre activité et vos préférences visuelles. On intègre votre logo existant ou on part d'une direction que vous validez."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce que je dois rédiger tous les textes moi-même ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas forcément rédigés — mais il faut nous donner la matière. Un message vocal, des notes, une ancienne plaquette, des captures de vos réseaux : tout est utilisable. On structure et reformule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Je n'ai pas de photos professionnelles. Que faire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On peut travailler avec des photos de smartphone bien cadrées. Évitez les banques d'images génériques : ça se voit et ça nuit à la crédibilité."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment définir mon objectif principal ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est ce que vous voulez que le visiteur fasse en priorité : appeler, remplir un formulaire, prendre rendez-vous, commander. Un site efficace a un seul objectif principal par page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "J'ai déjà un nom de domaine — que faire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gardez-le. On vous demandera les accès à votre bureau d'enregistrement pour faire pointer le domaine vers votre nouveau site. Pas besoin d'en acheter un nouveau."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il définir un budget précis dès le départ ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une fourchette réaliste nous aide à vous proposer ce qui est faisable — pas à vous facturer le maximum. Si vous n'êtes pas sûr, dites-nous ce que vous pouvez investir et on adapte la proposition."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ═══ GOOGLE FONTS — non-bloquant ═══ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=DM+Sans:wght@400;500&display=swap"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=DM+Sans:wght@400;500&display=swap">
+    </noscript>
+
+    <style>
+        :root {
+            --navy:          #0d1b2e;
+            --yellow:        #F5C31A;
+            --yellow-dim:    rgba(245,195,26,0.11);
+            --yellow-border: rgba(245,195,26,0.28);
+            --orange:        #e8572a;
+            --orange-dim:    rgba(232,87,42,0.12);
+            --red-soft:      rgba(239,68,68,0.12);
+            --red-border:    rgba(239,68,68,0.25);
+            --glass:         rgba(255,255,255,0.04);
+            --glass-border:  rgba(255,255,255,0.07);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--navy);
+            color: white;
+            overflow-x: hidden;
+        }
+        h1,h2,h3,h4,h5 { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* ─── GRILLE FOND ─── */
+        body::before {
+            content: '';
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        body::after {
+            content: '';
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* ─── NAV ─── */
+        #navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.3rem 1.75rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(10,22,40,0.82);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,0,0,0.2);
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
+        }
+        #navbar.scrolled {
+            padding: 0.85rem 1.75rem;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 6px 28px rgba(0,0,0,0.3);
+        }
+        .nav-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+            font-size: 1.4rem; letter-spacing: -0.02em; color: white; text-decoration: none;
+        }
+        .nav-logo .logo-accent { color: var(--orange); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            font-size: 0.875rem; font-weight: 500;
+            color: rgba(255,255,255,0.5); text-decoration: none;
+            transition: color 0.25s; position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--orange);
+            transition: width 0.3s; border-radius: 2px;
+        }
+        .nav-links a:hover { color: white; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: white; }
+        .nav-links a.active::after { width: 100%; }
+
+        /* ─── MENU MOBILE ─── */
+        #mobile-menu {
+            display: none; flex-direction: column; position: fixed; inset: 0;
+            background: var(--navy); z-index: 99;
+            justify-content: center; align-items: center; gap: 2.5rem;
+        }
+        #mobile-menu.open { display: flex; }
+        #mobile-menu a {
+            font-size: 2rem; font-weight: 800;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: white; text-decoration: none; transition: color 0.2s;
+        }
+        #mobile-menu a:hover { color: var(--orange); }
+        .ham-line {
+            display: block; width: 24px; height: 2px;
+            background: white; border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        #ham-btn.open .ham-line:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        #ham-btn.open .ham-line:nth-child(2) { opacity: 0; }
+        #ham-btn.open .ham-line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+        /* ─── BOUTONS ─── */
+        .btn-primary {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 0.5rem; font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700; font-size: 0.9rem; color: white;
+            background: var(--orange); border: none; border-radius: 0.75rem;
+            cursor: pointer; text-decoration: none; position: relative;
+            overflow: hidden; transition: transform 0.22s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(232,87,42,0.45), 0 1px 0 rgba(255,255,255,0.15) inset;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 36px rgba(232,87,42,0.6), 0 1px 0 rgba(255,255,255,0.15) inset;
+        }
+
+        /* ─── UTILITAIRES ─── */
+        .text-yellow  { color: var(--yellow); }
+        .text-orange  { color: var(--orange); }
+        .section-tag {
+            display: inline-block; font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.64rem; font-weight: 700; letter-spacing: 0.28em;
+            text-transform: uppercase; color: var(--yellow); margin-bottom: 0.6rem;
+        }
+        .section-tag.orange { color: var(--orange); }
+        .yellow-line {
+            width: 44px; height: 3px; background: var(--yellow);
+            border-radius: 4px; margin: 0.85rem 0 2rem;
+        }
+        .yellow-line.mx-auto { margin-left: auto; margin-right: auto; }
+
+        /* ─── HERO GLOW ─── */
+        #hero-glow {
+            position: absolute; top: -5%; left: 50%; transform: translateX(-50%);
+            width: 900px; height: 580px;
+            background: radial-gradient(ellipse at center,
+                rgba(245,195,26,0.08) 0%, rgba(245,195,26,0.03) 40%, transparent 70%);
+            pointer-events: none; z-index: 0;
+        }
+
+        /* ─── STAT CARDS ─── */
+        .stat-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem; padding: 1.5rem;
+            text-align: center;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .stat-card:hover {
+            border-color: rgba(245,195,26,0.35);
+            transform: translateY(-4px);
+        }
+
+        /* ─── ÉTAPES ─── */
+        .step-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem; padding: 1.4rem 1.5rem;
+            display: flex; align-items: flex-start; gap: 1rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .step-card:hover {
+            border-color: rgba(245,195,26,0.3);
+            transform: translateY(-3px);
+        }
+        .step-icon {
+            width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
+            background: var(--yellow-dim);
+            border: 1px solid var(--yellow-border);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .step-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em;
+            color: rgba(245,195,26,0.5); margin-bottom: 0.2rem;
+        }
+        .step-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem;
+        }
+        .step-sub {
+            font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.6;
+        }
+        .step-sub .emphasis { color: var(--yellow); font-weight: 500; }
+
+        /* ─── KPI ASIDE ─── */
+        .kpi-aside {
+            background: rgba(245,195,26,0.07);
+            border-left: 3px solid var(--yellow);
+            border-radius: 0 0.6rem 0.6rem 0;
+            padding: 0.9rem 1rem;
+            margin-top: 1rem;
+        }
+        .kpi-aside .kpi-val {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem; font-weight: 800; color: var(--yellow);
+        }
+        .kpi-aside .kpi-text {
+            font-size: 0.775rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-top: 0.2rem;
+        }
+
+        /* ─── CHECKLIST ─── */
+        .checklist-item {
+            display: flex; align-items: flex-start; gap: 0.7rem;
+            padding: 0.65rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.5;
+        }
+        .checklist-item:last-child { border-bottom: none; }
+        .check-dot {
+            width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+            background: var(--yellow-dim); border: 1px solid var(--yellow-border);
+            display: flex; align-items: center; justify-content: center; margin-top: 1px;
+        }
+
+        /* ─── TABS FAQ ─── */
+        .faq-tabs {
+            display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem;
+        }
+        .faq-tab {
+            padding: 0.4rem 0.9rem; border-radius: 99px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.76rem; font-weight: 700;
+            cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
+            border: 1px solid transparent; user-select: none;
+        }
+        .faq-tab.active {
+            background: var(--yellow); color: var(--navy); border-color: var(--yellow);
+        }
+        .faq-tab:not(.active) {
+            background: var(--glass); border-color: var(--glass-border);
+            color: rgba(255,255,255,0.4);
+        }
+        .faq-tab:not(.active):hover {
+            border-color: rgba(245,195,26,0.3); color: rgba(255,255,255,0.7);
+        }
+
+        /* ─── FAQ ACCORDION ─── */
+        .faq-panel { display: none; }
+        .faq-panel.active { display: block; }
+
+        .faq-item {
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: 0.75rem; overflow: hidden;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            margin-bottom: 0.5rem;
+        }
+        .faq-item:hover { border-color: rgba(245,195,26,0.25); }
+        .faq-item.open {
+            border-color: rgba(245,195,26,0.4);
+            box-shadow: 0 8px 32px rgba(245,195,26,0.06);
+        }
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1rem; padding: 1rem 1.2rem; cursor: pointer; user-select: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700; font-size: 0.875rem; color: white;
+            line-height: 1.4; transition: color 0.2s;
+        }
+        .faq-icon {
+            width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%;
+            background: var(--yellow-dim); border: 1px solid var(--yellow-border);
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.35s, background 0.3s;
+        }
+        .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--yellow); }
+        .faq-icon svg { width: 11px; height: 11px; stroke: var(--yellow); transition: stroke 0.3s; }
+        .faq-item.open .faq-icon svg { stroke: var(--navy); }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), padding 0.3s;
+            font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8;
+            padding: 0 1.2rem;
+        }
+        .faq-item.open .faq-answer { max-height: 1000px; padding: 0 1.2rem 1.2rem; }
+
+        /* ─── CTA BAND ─── */
+        .cta-band {
+            background: linear-gradient(135deg, rgba(232,87,42,0.12), rgba(232,87,42,0.04));
+            border: 1px solid rgba(232,87,42,0.2);
+            border-radius: 1.5rem; padding: 3rem 2rem;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-band::before {
+            content: ''; position: absolute; top: -60px; right: -60px;
+            width: 200px; height: 200px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,87,42,0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ─── BREADCRUMB ─── */
+        .breadcrumb {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.75rem; color: rgba(255,255,255,0.35);
+            font-family: 'Plus Jakarta Sans', sans-serif; flex-wrap: wrap;
+        }
+        .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--yellow); }
+        .breadcrumb-sep { color: rgba(255,255,255,0.2); }
+
+        /* ─── SÉPARATEUR ─── */
+        .section-divider {
+            height: 1px; background: rgba(255,255,255,0.05); margin: 0 0 3.5rem;
+        }
+
+        /* ─── LIEN EXTERNE ─── */
+        .link-badge {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.35rem 0.85rem; border-radius: 99px;
+            font-size: 0.72rem; font-weight: 700;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--yellow); text-decoration: none;
+            background: var(--yellow-dim); border: 1px solid var(--yellow-border);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .link-badge:hover { background: rgba(245,195,26,0.2); transform: translateY(-1px); }
+
+        /* ─── DEUX CHEMINS ─── */
+        .chemins-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem;
+            margin-top: 1.5rem;
+        }
+        .chemin-card {
+            border-radius: 1rem; padding: 1.25rem 1.1rem;
+        }
+        .chemin-card.bad {
+            background: rgba(239,68,68,0.05);
+            border: 1px solid rgba(239,68,68,0.2);
+        }
+        .chemin-card.good {
+            background: rgba(245,195,26,0.06);
+            border: 1px solid rgba(245,195,26,0.22);
+        }
+        .chemin-header {
+            display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;
+        }
+        .chemin-dot {
+            width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+        }
+        .chemin-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.68rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .chemin-phase {
+            border-radius: 0.5rem; padding: 0.45rem 0.7rem;
+            font-size: 0.74rem; font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-bottom: 0.2rem;
+        }
+        .chemin-phase.bad-phase {
+            background: rgba(239,68,68,0.1);
+            color: rgba(239,100,100,0.9);
+        }
+        .chemin-phase.good-phase {
+            background: rgba(245,195,26,0.1);
+            color: rgba(245,195,26,0.9);
+        }
+        .chemin-arrow {
+            text-align: center; font-size: 0.7rem;
+            color: rgba(255,255,255,0.18); margin: 0.15rem 0;
+        }
+        .chemin-loop {
+            display: flex; align-items: center; gap: 0.4rem;
+            font-size: 0.68rem; color: rgba(239,100,100,0.65);
+            margin: 0.2rem 0 0.3rem 0.4rem;
+        }
+        .chemin-total {
+            text-align: center; margin-top: 1rem; padding-top: 0.75rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .chemin-total .total-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.35rem; font-weight: 800;
+        }
+        .chemin-total .total-label {
+            font-size: 0.68rem; color: rgba(255,255,255,0.35);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .saving-badge {
+            display: inline-block;
+            background: rgba(245,195,26,0.12);
+            border: 1px solid rgba(245,195,26,0.3);
+            border-radius: 99px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.68rem; font-weight: 700;
+            color: var(--yellow);
+            padding: 0.25rem 0.65rem;
+            margin-top: 0.35rem;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            #hero-brief { padding: 6rem 1.25rem 3rem !important; }
+            .stats-grid { grid-template-columns: 1fr 1fr !important; }
+            .steps-grid { grid-template-columns: 1fr !important; }
+            .bottom-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+            .chemins-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (min-width: 769px) {
+            #nav-cta { display: inline-flex !important; }
+            #ham-btn { display: none !important; }
+        }
+
+        @keyframes pulse-dot {
+            0%,100% { opacity:1; transform:scale(1); }
+            50%      { opacity:0.4; transform:scale(0.7); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     NAVIGATION
+══════════════════════════════════ -->
+<nav id="navbar">
+    <a href="index.html" class="nav-logo">Ko<span class="logo-accent">vama</span></a>
+
+    <div class="nav-links">
+        <a href="index.html#offres">Offres</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#apropos">À propos</a>
+        <a href="ressources.html" class="active">Ressources</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:1rem;">
+        <a href="index.html#contact" class="btn-primary" style="padding:0.65rem 1.4rem;border-radius:0.65rem;font-size:0.825rem;display:none;" id="nav-cta">
+            Démarrer un projet
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button id="ham-btn" style="display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:101;position:relative;" aria-label="Menu">
+            <span class="ham-line"></span>
+            <span class="ham-line"></span>
+            <span class="ham-line"></span>
+        </button>
+    </div>
+</nav>
+
+<!-- MENU MOBILE -->
+<div id="mobile-menu">
+    <a href="index.html#accueil" onclick="closeMenu()">Accueil</a>
+    <a href="index.html#offres"  onclick="closeMenu()">Offres</a>
+    <a href="index.html#portfolio" onclick="closeMenu()">Portfolio</a>
+    <a href="index.html#apropos"   onclick="closeMenu()">À propos</a>
+    <a href="ressources.html" onclick="closeMenu()" style="color:var(--orange);">Ressources</a>
+    <a href="index.html#contact"   onclick="closeMenu()">Contact</a>
+    <a href="index.html#contact" class="btn-primary" style="padding:1rem 2.5rem;border-radius:0.875rem;font-size:1rem;margin-top:0.5rem;" onclick="closeMenu()">Démarrer un projet</a>
+</div>
+
+
+<!-- ══════════════════════════════════
+     CONTENU PRINCIPAL
+══════════════════════════════════ -->
+<main>
+
+    <!-- ══════════════════════════════════
+         HERO
+    ══════════════════════════════════ -->
+    <section id="hero-brief" style="padding:9rem 1.75rem 5rem;text-align:center;position:relative;overflow:hidden;z-index:1;">
+        <div id="hero-glow"></div>
+        <div style="max-width:52rem;margin:0 auto;position:relative;z-index:2;">
+
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" style="justify-content:center;margin-bottom:2rem;" aria-label="Fil d'Ariane">
+                <a href="index.html">Accueil</a>
+                <span class="breadcrumb-sep">›</span>
+                <a href="ressources.html">Ressources</a>
+                <span class="breadcrumb-sep">›</span>
+                <span style="color:var(--yellow);">Brief & Checklist projet</span>
+            </nav>
+
+            <!-- Badge -->
+            <div style="display:inline-flex;align-items:center;gap:0.45rem;background:rgba(245,195,26,0.08);border:1px solid rgba(245,195,26,0.25);color:var(--yellow);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:99px;margin-bottom:1.75rem;">
+                <span style="width:7px;height:7px;border-radius:50%;background:var(--yellow);display:inline-block;animation:pulse-dot 2s infinite;"></span>
+                Guide pratique — Collaboration
+            </div>
+
+            <h1 style="font-size:clamp(2rem,5.5vw,3.75rem);font-weight:800;line-height:1.15;color:white;margin-bottom:1.25rem;">
+                Réussir son brief &<br><span class="text-yellow">checklist projet</span> en collaboration
+            </h1>
+            <p style="color:rgba(255,255,255,0.5);font-size:1rem;line-height:1.8;max-width:38rem;margin:0 auto 2rem;">
+                Un projet bien préparé est un projet livré à temps. Voici exactement ce dont on a besoin de votre côté — et comment nous le transmettre, même brut.
+            </p>
+
+            <!-- Badge CTA -->
+            <div style="margin-bottom:3rem;">
+                <a href="index.html#contact" class="link-badge">
+                    <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    Démarrer mon projet avec Kovama
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:42rem;margin:0 auto;">
+                <div class="stat-card">
+                    <div style="font-size:1.8rem;font-weight:800;color:var(--yellow);font-family:'Plus Jakarta Sans',sans-serif;">3×</div>
+                    <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:0.3rem;line-height:1.5;">moins d'allers-retours<br>avec un brief complet</div>
+                </div>
+                <div class="stat-card">
+                    <div style="font-size:1.8rem;font-weight:800;color:var(--yellow);font-family:'Plus Jakarta Sans',sans-serif;">2×</div>
+                    <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:0.3rem;line-height:1.5;">plus rapide à livrer<br>votre projet</div>
+                </div>
+                <div class="stat-card">
+                    <div style="font-size:1.8rem;font-weight:800;color:var(--yellow);font-family:'Plus Jakarta Sans',sans-serif;">1 appel</div>
+                    <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:0.3rem;line-height:1.5;">suffit pour lancer<br>quand c'est préparé</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         4 ÉLÉMENTS DU BRIEF
+    ══════════════════════════════════ -->
+    <section style="padding:0 1.75rem 3.5rem;position:relative;z-index:1;">
+        <div style="max-width:52rem;margin:0 auto;">
+
+            <div class="section-divider"></div>
+
+            <div style="text-align:center;margin-bottom:2.5rem;">
+                <span class="section-tag">Ce qu'on a besoin de vous</span>
+                <h2 style="font-size:1.75rem;font-weight:800;color:white;">Les 4 blocs d'un brief réussi</h2>
+                <div class="yellow-line mx-auto"></div>
+            </div>
+
+            <div class="steps-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0.875rem;">
+
+                <!-- Bloc 1 -->
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+                    </div>
+                    <div>
+                        <div class="step-num">01</div>
+                        <div class="step-title">Votre identité de marque</div>
+                        <div class="step-sub">Logo (PNG fond transparent ou SVG), <span class="emphasis">couleurs si vous les connaissez</span>, police, ton (sérieux, chaleureux, moderne…). Pas de logo ? Décrivez vos préférences visuelles.</div>
+                    </div>
+                </div>
+
+                <!-- Bloc 2 -->
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="2"><path d="M9 12h6M9 16h6M9 8h6M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <div>
+                        <div class="step-num">02</div>
+                        <div class="step-title">Vos contenus & médias</div>
+                        <div class="step-sub">Textes <span class="emphasis">rédigés ou bruts</span>, photos (pro ou smartphone), vidéos, ancienne plaquette, posts Instagram… On structure ce que vous nous donnez.</div>
+                    </div>
+                </div>
+
+                <!-- Bloc 3 -->
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="2"><path d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/></svg>
+                    </div>
+                    <div>
+                        <div class="step-num">03</div>
+                        <div class="step-title">Vos références & concurrents</div>
+                        <div class="step-sub">2-3 sites que vous aimez (et <span class="emphasis">pourquoi</span>), ce que vous ne voulez surtout pas, vos concurrents directs. Pas besoin de longues explications.</div>
+                    </div>
+                </div>
+
+                <!-- Bloc 4 -->
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    </div>
+                    <div>
+                        <div class="step-num">04</div>
+                        <div class="step-title">Objectifs & contraintes</div>
+                        <div class="step-sub">L'<span class="emphasis">action principale</span> que doit déclencher votre site, votre cible, votre deadline, votre domaine existant et vos outils (réservation, paiement…).</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         DEUX CHEMINS + FAQ TABS
+    ══════════════════════════════════ -->
+    <section style="padding:0 1.75rem 5rem;position:relative;z-index:1;">
+        <div style="max-width:52rem;margin:0 auto;">
+
+            <div class="section-divider"></div>
+
+            <div class="bottom-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+
+                <!-- COLONNE GAUCHE — Deux chemins -->
+                <div>
+                    <span class="section-tag">Ce que ça change concrètement</span>
+                    <h2 style="font-size:1.4rem;font-weight:800;color:white;margin-bottom:0.4rem;">Brief incomplet<br>vs brief préparé</h2>
+                    <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:0.5rem;line-height:1.6;">Même projet, deux trajectoires radicalement différentes.</p>
+
+                    <div class="chemins-grid">
+
+                        <!-- Chemin rouge -->
+                        <div class="chemin-card bad">
+                            <div class="chemin-header">
+                                <div class="chemin-dot" style="background:#ef4444;"></div>
+                                <span class="chemin-label" style="color:rgba(239,100,100,0.75);">Brief incomplet</span>
+                            </div>
+                            <div class="chemin-phase bad-phase">Brief vague — 2j</div>
+                            <div class="chemin-arrow">↓</div>
+                            <div class="chemin-phase bad-phase">Maquette — 5j</div>
+                            <div class="chemin-loop">
+                                <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                                retouches demandées
+                            </div>
+                            <div class="chemin-phase bad-phase">Développement — 10j</div>
+                            <div class="chemin-loop">
+                                <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                                contenu manquant
+                            </div>
+                            <div class="chemin-phase bad-phase">Livraison — retardée</div>
+                            <div class="chemin-total">
+                                <div class="total-num" style="color:#ef4444;">~25 jours</div>
+                                <div class="total-label">+ stress + frustration</div>
+                            </div>
+                        </div>
+
+                        <!-- Chemin jaune -->
+                        <div class="chemin-card good">
+                            <div class="chemin-header">
+                                <div class="chemin-dot" style="background:var(--yellow);animation:pulse-dot 2s infinite;"></div>
+                                <span class="chemin-label" style="color:rgba(245,195,26,0.8);">Brief préparé</span>
+                            </div>
+                            <div class="chemin-phase good-phase">Brief clair — 1j</div>
+                            <div class="chemin-arrow" style="color:rgba(245,195,26,0.25);">↓</div>
+                            <div class="chemin-phase good-phase">Maquette — 3j</div>
+                            <div class="chemin-arrow" style="color:rgba(245,195,26,0.25);">↓</div>
+                            <div class="chemin-phase good-phase">Développement — 7j</div>
+                            <div class="chemin-arrow" style="color:rgba(245,195,26,0.25);">↓</div>
+                            <div class="chemin-phase good-phase">Livraison ✓ dans les temps</div>
+                            <div class="chemin-total">
+                                <div class="total-num" style="color:var(--yellow);">~11 jours</div>
+                                <div class="saving-badge">−14 jours gagnés</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="kpi-aside" style="margin-top:1.25rem;">
+                        <div class="kpi-val">Peu importe le format</div>
+                        <div class="kpi-text">Message vocal, notes WhatsApp, ancienne plaquette, capture Instagram… On prend tout. Le brief n'a pas besoin d'être parfait — juste complet.</div>
+                    </div>
+
+                    <!-- Checklist rapide -->
+                    <div style="margin-top:1.75rem;">
+                        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.18em;margin-bottom:0.75rem;">Checklist rapide</div>
+                        <div class="checklist-item">
+                            <div class="check-dot"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+                            Logo fourni (ou direction visuelle décrite)
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-dot"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+                            Couleurs & ton de marque communiqués
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-dot"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+                            Textes transmis (rédigés ou bruts, peu importe)
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-dot"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+                            Photos disponibles (pro ou smartphone)
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-dot"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+                            2-3 références de sites partagées
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-dot"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+                            Objectif principal du site défini
+                        </div>
+                        <div class="checklist-item">
+                            <div class="check-dot"><svg width="9" height="9" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+                            Deadline et fourchette de budget évoquées
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLONNE DROITE — FAQ tabs -->
+                <div>
+                    <span class="section-tag">Questions fréquentes</span>
+                    <h2 style="font-size:1.4rem;font-weight:800;color:white;margin-bottom:1.5rem;">Vos blocages,<br>nos réponses directes</h2>
+
+                    <div class="faq-tabs" role="tablist">
+                        <button class="faq-tab active" data-panel="identite" role="tab" aria-selected="true">Identité</button>
+                        <button class="faq-tab" data-panel="contenu" role="tab" aria-selected="false">Contenu</button>
+                        <button class="faq-tab" data-panel="objectifs" role="tab" aria-selected="false">Objectifs</button>
+                        <button class="faq-tab" data-panel="technique" role="tab" aria-selected="false">Technique</button>
+                    </div>
+
+                    <!-- Panel : Identité -->
+                    <div class="faq-panel active" id="panel-identite">
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>Je n'ai pas de logo — est-ce un problème ?</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Non, c'est fréquent. Partagez votre nom, votre activité et vos préférences visuelles (couleurs, ambiance, styles). On peut intégrer votre logo existant ou <strong style="color:white;">partir d'une direction visuelle que vous validez</strong> avant de développer.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>Je ne connais pas mes codes couleurs officiels.</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Pas de problème. Partagez ce qui vous parle : une marque dont vous aimez l'identité, une photo, une palette Pinterest. <strong style="color:white;">Les codes hex, c'est notre travail</strong> — vous, vous décrivez ce que vous ressentez.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>Mon activité est difficile à résumer en quelques mots.</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Expliquez-la comme vous l'expliqueriez à un ami. On retravaille l'angle ensemble. <strong style="color:white;">Vous êtes l'expert de votre métier, on est l'expert de sa mise en mots sur le web.</strong>
+                            </div>
+                        </div>
+
+                    </div><!-- /panel-identite -->
+
+                    <!-- Panel : Contenu -->
+                    <div class="faq-panel" id="panel-contenu">
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>Est-ce que je dois rédiger tous les textes moi-même ?</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Non. Vous nous donnez la <strong style="color:white;">matière</strong> — rédigée ou brute. Un message vocal, des notes WhatsApp, votre ancienne plaquette, vos posts Instagram : tout est exploitable. On structure, reformule et optimise pour le web.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>Je n'ai pas de photos professionnelles.</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Des photos de smartphone bien cadrées fonctionnent très bien. <strong style="color:white;">Évitez les banques d'images génériques</strong> — ça se voit immédiatement et ça nuit à la crédibilité. L'authenticité vaut mieux que la perfection retouchée.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>Combien de pages prévoir pour mon site ?</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Pour un commerce local, <strong style="color:white;">3 à 5 pages suffisent souvent</strong> : Accueil, Services, À propos, Contact — et une page spécifique si vous avez une offre phare. Plus de pages ne signifie pas plus d'efficacité. On vous conseille sur ce dont vous avez réellement besoin.
+                            </div>
+                        </div>
+
+                    </div><!-- /panel-contenu -->
+
+                    <!-- Panel : Objectifs -->
+                    <div class="faq-panel" id="panel-objectifs">
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>Comment définir mon objectif principal ?</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                C'est ce que vous voulez que le visiteur fasse <strong style="color:white;">en priorité</strong> : appeler, remplir un formulaire, prendre rendez-vous, commander. Un site efficace ne peut pas courir plusieurs lièvres à la fois — un objectif principal par page, c'est la règle.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>Je ne connais pas précisément ma cible.</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Décrivez votre <strong style="color:white;">meilleur client actuel</strong> : son profil approximatif, sa situation, ce qui l'a amené à vous. Une description concrète vaut mieux qu'un persona marketing abstrait. On fait le reste.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>Faut-il définir un budget précis dès le départ ?</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Une fourchette réaliste nous aide à vous proposer ce qui est faisable — <strong style="color:white;">pas à vous facturer le maximum</strong>. Si vous n'êtes pas sûr, dites-nous ce que vous pouvez investir et on adapte la proposition en conséquence.
+                            </div>
+                        </div>
+
+                    </div><!-- /panel-objectifs -->
+
+                    <!-- Panel : Technique -->
+                    <div class="faq-panel" id="panel-technique">
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>J'ai déjà un nom de domaine — que faire ?</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Gardez-le. On vous demandera les accès à votre bureau d'enregistrement (OVH, Gandi…) pour faire pointer le domaine vers votre nouveau site. <strong style="color:white;">Aucun achat supplémentaire nécessaire</strong> si vous en avez déjà un.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>J'ai déjà un site — on repart de zéro ?</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Ça dépend. Si l'existant est récupérable (textes utiles, bonnes photos), on l'exploite. Sinon, on repart sur une base saine. <strong style="color:white;">Un site mal construit coûte souvent plus cher à patcher qu'à refaire</strong> — on vous dit la vérité dès le départ.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                <span>J'utilise des outils spécifiques (réservation, paiement…)</span>
+                                <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                Notez-les dans le brief : Calendly, Stripe, Doctolib, etc. On vérifie l'intégration possible <strong style="color:white;">dès la phase de conception</strong> pour éviter les mauvaises surprises en développement.
+                            </div>
+                        </div>
+
+                    </div><!-- /panel-technique -->
+
+                </div><!-- /colonne droite -->
+
+            </div><!-- /bottom-grid -->
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         CTA BAND
+    ══════════════════════════════════ -->
+    <section style="padding:0 1.75rem 6rem;position:relative;z-index:1;">
+        <div style="max-width:52rem;margin:0 auto;">
+            <div class="cta-band">
+                <span class="section-tag orange">Votre projet</span>
+                <h2 style="font-size:1.8rem;font-weight:800;color:white;margin-bottom:0.75rem;">
+                    Prêt à nous envoyer votre brief ?
+                </h2>
+                <p style="color:rgba(255,255,255,0.5);font-size:0.875rem;line-height:1.7;max-width:32rem;margin:0 auto 2rem;">
+                    Même incomplet, même brut. On part de là où vous en êtes et on construit ensemble — sans jargon, sans engagement.
+                </p>
+                <a href="index.html#contact" class="btn-primary" style="padding:1.05rem 2.5rem;border-radius:0.9rem;font-size:0.9rem;">
+                    Démarrer mon projet
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer style="padding:3.5rem 1.75rem;position:relative;z-index:1;">
+    <div style="max-width:72rem;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;border-top:1px solid rgba(255,255,255,0.04);padding-top:1.75rem;">
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.35);">© 2026 Kovama. Tous droits réservés.</p>
+        <a href="ressources.html" style="font-size:0.72rem;color:rgba(255,255,255,0.35);text-decoration:none;" onmouseover="this.style.color='var(--yellow)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">← Retour aux ressources</a>
+    </div>
+</footer>
+
+
+<!-- ══════════════════════════════════
+     SCRIPTS
+══════════════════════════════════ -->
+<script>
+    /* ─── Nav scroll ─── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* ─── Hamburger ─── */
+    const hamBtn     = document.getElementById('ham-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamBtn.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('open');
+        hamBtn.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    });
+    function closeMenu() {
+        mobileMenu.classList.remove('open');
+        hamBtn.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    /* ─── Tabs FAQ ─── */
+    document.querySelectorAll('.faq-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const panel = tab.dataset.panel;
+            document.querySelectorAll('.faq-tab').forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            document.querySelectorAll('.faq-panel').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            document.getElementById('panel-' + panel).classList.add('active');
+            document.querySelectorAll('#panel-' + panel + ' .faq-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+        });
+    });
+
+    /* ─── FAQ Accordion ─── */
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+            item.closest('.faq-panel').querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                question.setAttribute('aria-expanded', 'true');
+            }
+        });
+        question.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); question.click(); }
+        });
+    });
+</script>
+
+</body>
+</html>
