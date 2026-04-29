@@ -43,6 +43,14 @@
         },
         {
           "@type": "Question",
+          "name": "Est-ce qu'un site une seule page peut suffire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, et c'est souvent le meilleur choix pour un commerce local. Un site one-page bien conçu convertit mieux qu'un site multi-pages mal structuré. On choisit la structure en fonction de votre objectif, pas pour faire plus grand."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Comment définir mon objectif principal ?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -55,14 +63,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Gardez-le. On vous demandera les accès à votre bureau d'enregistrement pour faire pointer le domaine vers votre nouveau site. Pas besoin d'en acheter un nouveau."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Faut-il définir un budget précis dès le départ ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Une fourchette réaliste nous aide à vous proposer ce qui est faisable — pas à vous facturer le maximum. Si vous n'êtes pas sûr, dites-nous ce que vous pouvez investir et on adapte la proposition."
           }
         }
       ]
@@ -86,8 +86,6 @@
             --yellow-border: rgba(245,195,26,0.28);
             --orange:        #e8572a;
             --orange-dim:    rgba(232,87,42,0.12);
-            --red-soft:      rgba(239,68,68,0.12);
-            --red-border:    rgba(239,68,68,0.25);
             --glass:         rgba(255,255,255,0.04);
             --glass-border:  rgba(255,255,255,0.07);
         }
@@ -271,7 +269,7 @@
         }
         .kpi-aside .kpi-val {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.4rem; font-weight: 800; color: var(--yellow);
+            font-size: 1.1rem; font-weight: 800; color: var(--yellow);
         }
         .kpi-aside .kpi-text {
             font-size: 0.775rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-top: 0.2rem;
@@ -380,7 +378,7 @@
             height: 1px; background: rgba(255,255,255,0.05); margin: 0 0 3.5rem;
         }
 
-        /* ─── LIEN EXTERNE ─── */
+        /* ─── LIEN BADGE ─── */
         .link-badge {
             display: inline-flex; align-items: center; gap: 0.4rem;
             padding: 0.35rem 0.85rem; border-radius: 99px;
@@ -392,79 +390,63 @@
         }
         .link-badge:hover { background: rgba(245,195,26,0.2); transform: translateY(-1px); }
 
-        /* ─── DEUX CHEMINS ─── */
-        .chemins-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem;
-            margin-top: 1.5rem;
+        /* ─── MAPPING BRUT → LIVRABLE ─── */
+        .mapping-row {
+            display: grid;
+            grid-template-columns: 1fr 24px 1fr;
+            align-items: center;
+            gap: 0.45rem;
+            margin-bottom: 0.5rem;
         }
-        .chemin-card {
-            border-radius: 1rem; padding: 1.25rem 1.1rem;
+        .mapping-from {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 0.6rem;
+            padding: 0.55rem 0.7rem;
+            display: flex; align-items: center; gap: 0.5rem;
         }
-        .chemin-card.bad {
-            background: rgba(239,68,68,0.05);
-            border: 1px solid rgba(239,68,68,0.2);
+        .mapping-from-icon {
+            width: 26px; height: 26px; flex-shrink: 0; border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center;
         }
-        .chemin-card.good {
-            background: rgba(245,195,26,0.06);
-            border: 1px solid rgba(245,195,26,0.22);
+        .mapping-from-text {
+            font-size: 0.72rem; color: rgba(255,255,255,0.45);
+            font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500;
+            line-height: 1.3;
         }
-        .chemin-header {
-            display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;
+        .mapping-arrow {
+            display: flex; align-items: center; justify-content: center;
         }
-        .chemin-dot {
-            width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+        .mapping-to {
+            background: rgba(245,195,26,0.07);
+            border: 1px solid rgba(245,195,26,0.2);
+            border-radius: 0.6rem;
+            padding: 0.55rem 0.7rem;
+            display: flex; align-items: center; gap: 0.5rem;
         }
-        .chemin-label {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.68rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.1em;
-        }
-        .chemin-phase {
-            border-radius: 0.5rem; padding: 0.45rem 0.7rem;
-            font-size: 0.74rem; font-weight: 600;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin-bottom: 0.2rem;
-        }
-        .chemin-phase.bad-phase {
-            background: rgba(239,68,68,0.1);
-            color: rgba(239,100,100,0.9);
-        }
-        .chemin-phase.good-phase {
+        .mapping-to-icon {
+            width: 26px; height: 26px; flex-shrink: 0; border-radius: 6px;
             background: rgba(245,195,26,0.1);
-            color: rgba(245,195,26,0.9);
+            display: flex; align-items: center; justify-content: center;
         }
-        .chemin-arrow {
-            text-align: center; font-size: 0.7rem;
-            color: rgba(255,255,255,0.18); margin: 0.15rem 0;
+        .mapping-to-text {
+            font-size: 0.72rem; color: rgba(245,195,26,0.85);
+            font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600;
+            line-height: 1.3;
         }
-        .chemin-loop {
-            display: flex; align-items: center; gap: 0.4rem;
-            font-size: 0.68rem; color: rgba(239,100,100,0.65);
-            margin: 0.2rem 0 0.3rem 0.4rem;
+        .mapping-header {
+            display: grid;
+            grid-template-columns: 1fr 24px 1fr;
+            gap: 0.45rem;
+            margin-bottom: 0.6rem;
         }
-        .chemin-total {
-            text-align: center; margin-top: 1rem; padding-top: 0.75rem;
-            border-top: 1px solid rgba(255,255,255,0.06);
-        }
-        .chemin-total .total-num {
+        .mapping-header-label {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.35rem; font-weight: 800;
-        }
-        .chemin-total .total-label {
-            font-size: 0.68rem; color: rgba(255,255,255,0.35);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            text-transform: uppercase; letter-spacing: 0.08em;
-        }
-        .saving-badge {
-            display: inline-block;
-            background: rgba(245,195,26,0.12);
-            border: 1px solid rgba(245,195,26,0.3);
-            border-radius: 99px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.68rem; font-weight: 700;
-            color: var(--yellow);
-            padding: 0.25rem 0.65rem;
-            margin-top: 0.35rem;
+            font-size: 0.62rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.2);
+            padding: 0 0.1rem;
         }
 
         /* ─── RESPONSIVE ─── */
@@ -474,7 +456,7 @@
             .stats-grid { grid-template-columns: 1fr 1fr !important; }
             .steps-grid { grid-template-columns: 1fr !important; }
             .bottom-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
-            .chemins-grid { grid-template-columns: 1fr !important; }
+            .mapping-from-text, .mapping-to-text { font-size: 0.66rem; }
         }
         @media (min-width: 769px) {
             #nav-cta { display: inline-flex !important; }
@@ -570,15 +552,11 @@
                 </a>
             </div>
 
-            <!-- Stats -->
-            <div class="stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:42rem;margin:0 auto;">
+            <!-- Stats — 2 cartes uniquement -->
+            <div class="stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:32rem;margin:0 auto;">
                 <div class="stat-card">
                     <div style="font-size:1.8rem;font-weight:800;color:var(--yellow);font-family:'Plus Jakarta Sans',sans-serif;">3×</div>
                     <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:0.3rem;line-height:1.5;">moins d'allers-retours<br>avec un brief complet</div>
-                </div>
-                <div class="stat-card">
-                    <div style="font-size:1.8rem;font-weight:800;color:var(--yellow);font-family:'Plus Jakarta Sans',sans-serif;">2×</div>
-                    <div style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:0.3rem;line-height:1.5;">plus rapide à livrer<br>votre projet</div>
                 </div>
                 <div class="stat-card">
                     <div style="font-size:1.8rem;font-weight:800;color:var(--yellow);font-family:'Plus Jakarta Sans',sans-serif;">1 appel</div>
@@ -591,7 +569,7 @@
 
 
     <!-- ══════════════════════════════════
-         4 ÉLÉMENTS DU BRIEF
+         4 BLOCS DU BRIEF
     ══════════════════════════════════ -->
     <section style="padding:0 1.75rem 3.5rem;position:relative;z-index:1;">
         <div style="max-width:52rem;margin:0 auto;">
@@ -660,7 +638,7 @@
 
 
     <!-- ══════════════════════════════════
-         DEUX CHEMINS + FAQ TABS
+         MAPPING BRUT → LIVRABLE + FAQ TABS
     ══════════════════════════════════ -->
     <section style="padding:0 1.75rem 5rem;position:relative;z-index:1;">
         <div style="max-width:52rem;margin:0 auto;">
@@ -669,63 +647,117 @@
 
             <div class="bottom-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
 
-                <!-- COLONNE GAUCHE — Deux chemins -->
+                <!-- COLONNE GAUCHE — Mapping brut → livrable -->
                 <div>
-                    <span class="section-tag">Ce que ça change concrètement</span>
-                    <h2 style="font-size:1.4rem;font-weight:800;color:white;margin-bottom:0.4rem;">Brief incomplet<br>vs brief préparé</h2>
-                    <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:0.5rem;line-height:1.6;">Même projet, deux trajectoires radicalement différentes.</p>
+                    <span class="section-tag">Ce qu'on fait de vos infos</span>
+                    <h2 style="font-size:1.4rem;font-weight:800;color:white;margin-bottom:0.4rem;">De vos éléments bruts<br>à votre site finalisé</h2>
+                    <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:1.2rem;line-height:1.6;">Pas besoin que ce soit parfait. Voilà ce que chaque élément devient entre nos mains.</p>
 
-                    <div class="chemins-grid">
+                    <!-- En-têtes colonnes -->
+                    <div class="mapping-header">
+                        <div class="mapping-header-label">Vous nous donnez</div>
+                        <div></div>
+                        <div class="mapping-header-label">Ça devient</div>
+                    </div>
 
-                        <!-- Chemin rouge -->
-                        <div class="chemin-card bad">
-                            <div class="chemin-header">
-                                <div class="chemin-dot" style="background:#ef4444;"></div>
-                                <span class="chemin-label" style="color:rgba(239,100,100,0.75);">Brief incomplet</span>
+                    <!-- Ligne 1 -->
+                    <div class="mapping-row">
+                        <div class="mapping-from">
+                            <div class="mapping-from-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.4)" stroke-width="2"><path d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
                             </div>
-                            <div class="chemin-phase bad-phase">Brief vague — 2j</div>
-                            <div class="chemin-arrow">↓</div>
-                            <div class="chemin-phase bad-phase">Maquette — 5j</div>
-                            <div class="chemin-loop">
-                                <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                                retouches demandées
-                            </div>
-                            <div class="chemin-phase bad-phase">Développement — 10j</div>
-                            <div class="chemin-loop">
-                                <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                                contenu manquant
-                            </div>
-                            <div class="chemin-phase bad-phase">Livraison — retardée</div>
-                            <div class="chemin-total">
-                                <div class="total-num" style="color:#ef4444;">~25 jours</div>
-                                <div class="total-label">+ stress + frustration</div>
-                            </div>
+                            <div class="mapping-from-text">Message vocal ou notes brutes</div>
                         </div>
-
-                        <!-- Chemin jaune -->
-                        <div class="chemin-card good">
-                            <div class="chemin-header">
-                                <div class="chemin-dot" style="background:var(--yellow);animation:pulse-dot 2s infinite;"></div>
-                                <span class="chemin-label" style="color:rgba(245,195,26,0.8);">Brief préparé</span>
-                            </div>
-                            <div class="chemin-phase good-phase">Brief clair — 1j</div>
-                            <div class="chemin-arrow" style="color:rgba(245,195,26,0.25);">↓</div>
-                            <div class="chemin-phase good-phase">Maquette — 3j</div>
-                            <div class="chemin-arrow" style="color:rgba(245,195,26,0.25);">↓</div>
-                            <div class="chemin-phase good-phase">Développement — 7j</div>
-                            <div class="chemin-arrow" style="color:rgba(245,195,26,0.25);">↓</div>
-                            <div class="chemin-phase good-phase">Livraison ✓ dans les temps</div>
-                            <div class="chemin-total">
-                                <div class="total-num" style="color:var(--yellow);">~11 jours</div>
-                                <div class="saving-badge">−14 jours gagnés</div>
-                            </div>
+                        <div class="mapping-arrow">
+                            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(245,195,26,0.35)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </div>
+                        <div class="mapping-to">
+                            <div class="mapping-to-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="2"><path d="M9 12h6M9 16h6M9 8h6M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div class="mapping-to-text">Textes de pages optimisés SEO</div>
+                        </div>
+                    </div>
 
+                    <!-- Ligne 2 -->
+                    <div class="mapping-row">
+                        <div class="mapping-from">
+                            <div class="mapping-from-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.4)" stroke-width="2"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
+                            </div>
+                            <div class="mapping-from-text">Photos smartphone ou existantes</div>
+                        </div>
+                        <div class="mapping-arrow">
+                            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(245,195,26,0.35)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                        <div class="mapping-to">
+                            <div class="mapping-to-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="2"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div class="mapping-to-text">Visuels intégrés & mis en valeur</div>
+                        </div>
+                    </div>
+
+                    <!-- Ligne 3 -->
+                    <div class="mapping-row">
+                        <div class="mapping-from">
+                            <div class="mapping-from-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.4)" stroke-width="2"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                            </div>
+                            <div class="mapping-from-text">"J'aime bien ce site…" + 2 liens</div>
+                        </div>
+                        <div class="mapping-arrow">
+                            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(245,195,26,0.35)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                        <div class="mapping-to">
+                            <div class="mapping-to-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="2"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                            </div>
+                            <div class="mapping-to-text">Direction créative validée & cohérente</div>
+                        </div>
+                    </div>
+
+                    <!-- Ligne 4 -->
+                    <div class="mapping-row">
+                        <div class="mapping-from">
+                            <div class="mapping-from-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.4)" stroke-width="2"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                            </div>
+                            <div class="mapping-from-text">Description de votre meilleur client</div>
+                        </div>
+                        <div class="mapping-arrow">
+                            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(245,195,26,0.35)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                        <div class="mapping-to">
+                            <div class="mapping-to-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                            </div>
+                            <div class="mapping-to-text">Textes qui parlent à vos vrais clients</div>
+                        </div>
+                    </div>
+
+                    <!-- Ligne 5 -->
+                    <div class="mapping-row">
+                        <div class="mapping-from">
+                            <div class="mapping-from-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.4)" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                            </div>
+                            <div class="mapping-from-text">Ancienne plaquette ou menu papier</div>
+                        </div>
+                        <div class="mapping-arrow">
+                            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="rgba(245,195,26,0.35)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                        <div class="mapping-to">
+                            <div class="mapping-to-icon">
+                                <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--yellow)" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                            </div>
+                            <div class="mapping-to-text">Architecture du site structurée</div>
+                        </div>
                     </div>
 
                     <div class="kpi-aside" style="margin-top:1.25rem;">
                         <div class="kpi-val">Peu importe le format</div>
-                        <div class="kpi-text">Message vocal, notes WhatsApp, ancienne plaquette, capture Instagram… On prend tout. Le brief n'a pas besoin d'être parfait — juste complet.</div>
+                        <div class="kpi-text">Message vocal, notes WhatsApp, capture Instagram, document Word mal formaté… On prend tout. Le brief n'a pas besoin d'être parfait — juste complet.</div>
                     </div>
 
                     <!-- Checklist rapide -->
@@ -834,11 +866,11 @@
 
                         <div class="faq-item">
                             <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
-                                <span>Combien de pages prévoir pour mon site ?</span>
+                                <span>Est-ce qu'un site une seule page peut suffire ?</span>
                                 <div class="faq-icon"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
                             </div>
                             <div class="faq-answer">
-                                Pour un commerce local, <strong style="color:white;">3 à 5 pages suffisent souvent</strong> : Accueil, Services, À propos, Contact — et une page spécifique si vous avez une offre phare. Plus de pages ne signifie pas plus d'efficacité. On vous conseille sur ce dont vous avez réellement besoin.
+                                Oui, et c'est souvent le meilleur choix pour un commerce local. Un site one-page bien conçu convertit mieux qu'un site multi-pages mal structuré. <strong style="color:white;">On choisit la structure en fonction de votre objectif</strong>, pas pour faire plus grand.
                             </div>
                         </div>
 
